@@ -26,11 +26,15 @@ public class TransferMoneyController {
 	KeyPair sender;
 	KeyPair receiver;
 	
+	
+	
 	@RequestMapping("/welcome")
 	public String helloWorld() {
  
 		return "welcome";
 	}
+	
+	
 	
 	@RequestMapping("/buttons")
 	public ModelAndView buttons() throws IOException {
@@ -76,6 +80,12 @@ public class TransferMoneyController {
 		String receiverDetails = displayAccount(receiver);
 		return new ModelAndView("welcome","message","Sender Details- "+
 				senderDetails +" \n "+	"Receiver Details- " + receiverDetails);
+	}
+	
+	@RequestMapping("*")
+	public String initPage() {
+ 
+		return "index2";
 	}
 	
 	private String displayAccount(KeyPair accountPair) throws IOException {
